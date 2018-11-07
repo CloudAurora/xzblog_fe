@@ -1,0 +1,15 @@
+{
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "baseUrl": "./",
+  "paths": {
+    "src/*": [
+      "src/*"
+    ]
+  },
+  "compilerOptions": {
+    "experimentalDecorators": true
+  }
+}

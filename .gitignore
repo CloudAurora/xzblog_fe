@@ -1,0 +1,9 @@
+node_modules/
+.vscode/
+build/
+.DS_Store
+.idea/
+dist/
+.parallel-uglify-cache/
+output/
+templates/

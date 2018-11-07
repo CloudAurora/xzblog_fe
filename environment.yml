@@ -1,0 +1,28 @@
+# 以 "BROWSER_" 开头的配置项在浏览器可以访问
+# 浏览器还能使用NODE_ENV, PUBLIC_PATH
+
+# 公有环境
+global:
+  PORT: 4000
+  PUBLIC_PATH: '/'
+  BROWSER_REQUEST_PREFIEX: /api/v1/
+  # BROWSER_REQUEST_PREFIEX: /auth/api/service
+  BROWSER_REQUEST_TIMEOUT: 300000
+
+# 测试环境(NODE_ENV=development)
+development:
+  BABEL_ENV: development
+  DANGEROUSLY_DISABLE_HOST_CHECK: true
+  HOST: 0.0.0.0
+  PUBLIC_PATH: /
+  REACT_EDITOR: code
+    
+# 生产环境(NODE_ENV=production)
+production:
+  BABEL_ENV: production
+  GENERATE_SOURCEMAP: false
+  PUBLIC_PATH: //s3a.pstatp.com/dp/survey_fe/
+
+# 测试环境(NODE_ENV=test)
+test:
+  BABEL_ENV: development

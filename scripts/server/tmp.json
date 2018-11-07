@@ -1,0 +1,102 @@
+{
+  "background": {
+    "type": "color",
+    "color": "#EEF0F3"
+  },
+  "header": {
+    "type": "none"
+  },
+  "title_color": "#2d2d2d",
+  "footer": "Powered by Bytedance",
+  "prompt": "感谢参与！",
+  "title": "",
+  "desc": "",
+  "questions": [
+    {
+      "id": "$abcdefg",
+      "type": "page_break"
+    },
+    {
+      "id": "$10ba038e-48da-487b-96e8-8d3b99b6d18a",
+      "type": "multi",
+      "name": "问题",
+      "required": false,
+      "custom": {
+        "random": true,
+        "other": {
+          "status": 1,
+          "is_trap": 0
+        },
+        "options": [
+          {
+            "id": "asdfgfdshgfvz",
+            "text": "选项",
+            "is_trap": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "$abcdefghijklmn",
+      "type": "single",
+      "name": "问题",
+      "required": true,
+      "custom": {
+        "random": true,
+        "other": {
+          "status": 1,
+          "jump_id": "-1",
+          "is_trap": 0
+        },
+        "options": [
+          {
+            "id": "b2d2845c-ac72-479c-b0f4-7154135ca342",
+            "text": "选项1",
+            "jump_id": "-1",
+            "is_trap": false
+          },
+          {
+            "id": "b2d2845c-ac72-479c-b0f4-7154135ca33",
+            "text": "选项2",
+            "jump_id": "-1",
+            "is_trap": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "$10ba038e-48da-487b-96e8-8d3b99b6d18ab",
+      "type": "short",
+      "name": "问题",
+      "required": false,
+      "custom": {
+        "text": "内容长度请控制在50字以内"
+      }
+    },
+    {
+      "id": "$10ba038e-48da-487b-96e8-8d3b99b6d18abc",
+      "type": "long",
+      "name": "问题",
+      "required": false,
+      "custom": {
+        "text": "内容长度请控制在500字以内"
+      }
+    },
+    {
+      "id": "$aaaaaaaaaaaaaaaa",
+      "type": "scale",
+      "name": "量表",
+      "required": false,
+      "custom": {
+        "min": {
+          "num": 0,
+          "text": "不可能"
+        },
+        "max": {
+          "num": 10,
+          "text": "极有可能"
+        }
+      }
+    }
+  ]
+}
