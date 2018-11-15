@@ -18,7 +18,7 @@ export default class App extends Component {
       <Route path="/about/" component={About} />
       <Route path="/" render={() => <Redirect to="/home" />} />
     </Switch>
-  );
+  )
 
   render() {
     return (
@@ -31,9 +31,11 @@ export default class App extends Component {
 }
 
 const VerticalLayout = styled.main`
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  background: #f9f9f9;
   display: flex;
+  position: relative;
   flex-direction: column;
   & > .item-fixed {
     flex: 0 0 auto;

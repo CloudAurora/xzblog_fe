@@ -3,7 +3,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export default theme => ({
   root: {
-    width: '100vw',
+    position: 'relative',
+    zIndex: 999,
   },
   grow: {
     flexGrow: 1,
@@ -14,6 +15,8 @@ export default theme => ({
   },
   title: {
     display: 'none',
+    fontFamily: 'Poiret One',
+    fontSize: 28,
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },

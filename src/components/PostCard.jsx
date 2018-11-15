@@ -1,61 +1,63 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import moment from 'moment';
+import { css } from 'react-emotion';
 import Card from '@material-ui/core/Card';
+import { Event, BookmarkBorder, ImportContacts } from '@material-ui/icons';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const styles = {
-  card: {
-    minWidth: 275,
-    margin: 20,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-};
-
-@withStyles(styles)
 export default class PostCard extends Component {
   static propTypes = {
-    classes: PropTypes.object.isRequired,
     post: PropTypes.object.isRequired,
-  };
+  }
 
   render() {
-    const { classes, post } = this.props;
-    const bull = <span className={classes.bullet}>•</span>;
+    const { post, ...rest } = this.props;
 
     return (
-      <Card className={classes.card}>
+      <Card {...rest} className={css`margin-bottom: 20px;`}>
         <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
-            {post.createTime}/{post.lastModified}
-          </Typography>
-          <Typography variant="h5" component="h2">
+          <Typography variant="h5" component="h2" className={titleCls}>
             {post.title}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            {post.categories.map(c => c.name).join('/')}
+          <Typography color="textSecondary" gutterBottom>
+            <Event className={smallCls} />
+            <span className={smallCls}>{moment(post.createTime).format('YYYY-MM-DD HH:mm')}</span>
+            <BookmarkBorder className={smallCls} />
+            <span className={smallCls}>{post.categories.map(c => c.name).join('/')}</span>
           </Typography>
-          <Typography component="p">
-            {post.summary}
-          </Typography>
+          <Typography component="p">{post.summary}</Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Read More</Button>
+          <Button size="small" color="primary">
+            <ImportContacts
+              className={css`
+                margin-right: .2em;
+                font-size: 20px;
+                vertical-align: middle;
+              `}
+            />{' '}
+            Read More
+          </Button>
         </CardActions>
       </Card>
     );
   }
 }
+
+const smallCls = css`
+  vertical-align: middle;
+  margin-right: 5px;
+  &.svg {
+    font-size: 20px;
+  }
+`;
+const titleCls = css`
+  margin: .3em 0 !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`;
